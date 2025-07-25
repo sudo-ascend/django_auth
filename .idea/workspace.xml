@@ -4,20 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f97c7cb4-3b51-41a2-a952-a998b31bd854" name="Changes" comment="001">
-      <change afterPath="$PROJECT_DIR$/mysite/myauth/templates/myauth/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/Django_auth.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Django_auth.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/auth/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/auth/admin.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/auth/apps.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/auth/migrations/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/auth/models.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/auth/tests.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/auth/views.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/mysite/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/mysite/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/mysite/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/mysite/urls.py" afterDir="false" />
-    </list>
+    <list default="true" id="f97c7cb4-3b51-41a2-a952-a998b31bd854" name="Changes" comment="001" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -27,12 +14,19 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="HTML File" />
+        <option value="Python Script" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/sudo-ascend/django_auth",
+    "accountId": "401355cb-961f-4455-9227-cfaa9b4736dd"
+  }
+}]]></component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 8
 }</component>
@@ -105,7 +99,23 @@
       <option name="project" value="LOCAL" />
       <updated>1753450519093</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="001">
+      <option name="closed" value="true" />
+      <created>1753453636049</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1753453636049</updated>
+    </task>
+    <task id="LOCAL-00003" summary="001">
+      <option name="closed" value="true" />
+      <created>1753453654305</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1753453654305</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
