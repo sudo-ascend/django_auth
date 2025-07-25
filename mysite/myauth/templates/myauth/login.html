@@ -17,35 +17,19 @@
 
                         <form action="" method="POST">
                           {% csrf_token %}
+<!--                            {{ form.as_p }}-->
+                            {% for f in form %}
                             <div class="mb-3">
-                                <label for="name" class="form-label">Имя</label>
-                                <input name="name" type="text" class="form-control" id="name" placeholder="Введите ваше имя" required>
+                                <label for="{{ f.id_for_label }}" class="form-label">{{ f.label }}</label>
+                                {{ f }}
+                                <div class="text-danger">{{ f.errors }}</div>
                             </div>
-
-                            <div class="mb-3">
-                                <label for="email" class="form-label">Email</label>
-                                <input name="email" type="email" class="form-control" id="email" placeholder="example@mail.com" required>
-                            </div>
-
-                            <div class="mb-3">
-                                <label for="password" class="form-label">Пароль</label>
-                                <input name="password1" type="password" class="form-control" id="password" placeholder="Не менее 6 символов" required>
-                            </div>
-
-                            <div class="mb-3">
-                                <label for="confirm-password" class="form-label">Подтвердите пароль</label>
-                                <input name="password2" type="password" class="form-control" id="confirm-password" placeholder="Повторите пароль" required>
-                            </div>
-
-                            <div class="mb-3 form-check">
-                                <input name="agree" type="checkbox" class="form-check-input" id="agree-terms" required>
-                                <label class="form-check-label" for="agree-terms">Я согласен с условиями использования</label>
-                            </div>
-
+                            {% endfor %}
                             <div class="d-grid gap-2">
                                 <button type="submit" class="btn btn-primary">Зарегистрироваться</button>
                             </div>
                         </form>
+
 
                         <div class="text-center mt-3">
                             <p class="mb-0">Уже есть аккаунт? <a href="#" class="text-decoration-none">Войти</a></p>
