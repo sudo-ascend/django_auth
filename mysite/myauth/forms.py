@@ -42,19 +42,21 @@ from myauth.models import User
 
 
 class AuthForm(forms.ModelForm):
-    password2 = forms.CharField(required=True, label="Подтвердите Пароль", widget=forms.TextInput(attrs={"class": "form-control"}))
+    password2 = forms.CharField(required=True, label="Подтвердите пароль", widget=forms.TextInput(attrs={"class": "form-control"}))
     agree = forms.BooleanField(label="Я согласен с условиями использования", initial=True)
 
     class Meta:
         model = User
-        fields = ["name", "email", "password"]   #"__all__"
+        fields = ["username", "email", "password1", "photo"]   #"__all__"
         widgets = {
-            "name": forms.TextInput(attrs={"class": "form-control"}),
+            "username": forms.TextInput(attrs={"class": "form-control"}),
             "email": forms.TextInput(attrs={"class": "form-control"}),
-            "password": forms.TextInput(attrs={"class": "form-control"})
+            "password1": forms.TextInput(attrs={"class": "form-control"}),
+            "photo": forms.TextInput(attrs={"class": "form-control"}),
         }
         labels = {
-            "name": "Имя",
+            "username": "Имя",
             "email": "email",
-            "password": "Пароль"
+            "password1": "Пароль",
+            "photo": "Фото",
         }
