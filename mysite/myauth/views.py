@@ -32,42 +32,8 @@ def registration_user(request):
 def login_user(request):
     if request.method == "POST":
         form = LoginForm(request.POST)
-
         if form.is_valid():
             cd = form.cleaned_data
-            user = User.objects.get(email=cd["email"])  # Или username=cd["username"]
-            user.set_password("12345")
-            user.save()
-            print("\n=== DEBUG AUTH ===")
-            print(f"User: {user}")
-            print(f"Email: {user.email}")
-            print(f"DB password hash: {user.password[:50]}...")  # Выводим начало хеша
-
-            # Проверка пароля
-            input_password = cd["password1"]
-            print(f"Input password: {input_password}")
-            print(f"Password check: {user.check_password(input_password)}")
-
-            if user.check_password(input_password):
-                print("✅ Пароль верный")
-                # Дополнительная проверка хеша
-                from django.contrib.auth.hashers import identify_hasher
-                try:
-                    hasher = identify_hasher(user.password)
-                    print(f"Hasher: {hasher.algorithm}")
-                except Exception as e:
-                    print(f"❌ Hash identification failed: {e}")
-            else:
-                print("❌ Ошибка: Неверный пароль!")
-                # Проверка существования пользователя с таким паролем
-                try:
-                    test_user = User.objects.get(email=cd["email"], password=input_password)
-                    print("⚠️ Внимание: Пароль сохранен в открытом виде!")
-                except User.DoesNotExist:
-                    print("Пароль в БД хранится как хеш (это нормально)")
-
-
-
             user = authenticate(request, username=cd["email"], password=cd["password1"])
             if user:
                 login(request, user)

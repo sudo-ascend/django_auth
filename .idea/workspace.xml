@@ -4,14 +4,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f97c7cb4-3b51-41a2-a952-a998b31bd854" name="Changes" comment="первая попытка сделать регистрацию. тут надо все менять">
-      <change afterPath="$PROJECT_DIR$/mysite/myauth/templates/myauth/registration.html" afterDir="false" />
+    <list default="true" id="f97c7cb4-3b51-41a2-a952-a998b31bd854" name="Changes" comment="Revert &quot;первая попытка сделать регистрацию. тут надо все менять&quot;&#10;&#10;This reverts commit 37de7bf1">
+      <change afterPath="$PROJECT_DIR$/mysite/myauth/migrations/0001_initial.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mysite/myauth/migrations/0002_rename_password_user_password1_user_photo.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mysite/myauth/migrations/0003_alter_user_photo.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mysite/myauth/migrations/0004_alter_user_photo.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mysite/myauth/migrations/0005_alter_user_options_alter_user_managers_and_more.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mysite/myauth/migrations/0006_alter_user_email_alter_user_username.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mysite/myauth/migrations/0007_alter_user_email.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mysite/myauth/migrations/0008_alter_user_email.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mysite/myauth/migrations/0009_alter_user_email_alter_user_username.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mysite/myauth/migrations/0010_remove_user_password1_alter_user_email_and_more.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mysite/myauth/migrations/__init__.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/myauth/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/myauth/forms.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mysite/myauth/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/myauth/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/myauth/templates/myauth/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/myauth/templates/myauth/login.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mysite/myauth/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/myauth/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/mysite/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/mysite/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/mysite/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/mysite/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/uploads/Strobe_Lights.jpg" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,8 +31,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Python Script" />
         <option value="HTML File" />
+        <option value="Python Script" />
       </list>
     </option>
   </component>
@@ -49,20 +59,19 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;Python.startapp.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "Python.startapp.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "Reverting in master"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\grach\PycharmProjects\Django_auth\mysite\uploads" />
       <recent name="C:\Users\grach\PycharmProjects\Django_auth\mysite\auth\templates\auth" />
     </key>
   </component>
@@ -138,44 +147,22 @@
       <option name="project" value="LOCAL" />
       <updated>1753453793671</updated>
     </task>
-    <task id="LOCAL-00005" summary="001">
-      <option name="closed" value="true" />
-      <created>1753462731909</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1753462731909</updated>
-    </task>
-    <task id="LOCAL-00006" summary="001">
-      <option name="closed" value="true" />
-      <created>1753466644838</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1753466644838</updated>
-    </task>
-    <task id="LOCAL-00007" summary="001">
-      <option name="closed" value="true" />
-      <created>1753467598492</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1753467598492</updated>
-    </task>
-    <task id="LOCAL-00008" summary="первая попытка сделать регистрацию. тут надо все менять">
-      <option name="closed" value="true" />
-      <created>1753530655745</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1753530655745</updated>
-    </task>
-    <option name="localTasksCounter" value="9" />
+    <option name="localTasksCounter" value="5" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="001" />
-    <MESSAGE value="первая попытка сделать регистрацию. тут надо все менять" />
-    <option name="LAST_COMMIT_MESSAGE" value="первая попытка сделать регистрацию. тут надо все менять" />
+    <option name="LAST_COMMIT_MESSAGE" value="001" />
   </component>
 </project>
