@@ -1,53 +1,82 @@
 from django.contrib.auth import authenticate, logout, login
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect
-from .forms import AuthForm
+from .forms import RegistrationForm, LoginForm
 from .models import User
 from django.contrib import messages
 
 
 def registration_user(request):
     if request.method == "POST":
-        form = AuthForm(request.POST, request.FILES)
+        form = RegistrationForm(request.POST, request.FILES)
         if form.is_valid():
-            password1 = form.cleaned_data.get('password1')
-            password2 = form.cleaned_data.get('password2')
+            cd = form.cleaned_data
+            password1 = cd.get('password1')
+            password2 = cd.get('password2')
             if password1 != password2:
                 form.add_error('password2', "Пароли не совпадают")
             else:
                 # handle_uploaded_file(request.FILES["photo"])
-                form.save()
+
+                user = form.save(commit=False)  # Создаем объект пользователя без сохранения в БД
+                user.username = cd["email"]  # Устанавливаем username (если требуется)
+                user.set_password(cd["password1"])  # Правильно хешируем пароль
+                user.save()  # Сохраняем пользователя с хешированным паролем
     else:
-        form = AuthForm()
+        form = RegistrationForm()
     context = {
-        'type': "registration",
         'form': form
     }
-    return render(request, "myauth/login.html", context=context)
+    return render(request, "myauth/registration.html", context=context)
 
 def login_user(request):
     if request.method == "POST":
-        form = AuthForm(request.POST)
-        del form.fields['password2']
-        del form.fields['photo']
-        del form.fields['agree']
-        del form.fields['username']
+        form = LoginForm(request.POST)
+
         if form.is_valid():
             cd = form.cleaned_data
+            user = User.objects.get(email=cd["email"])  # Или username=cd["username"]
+            user.set_password("12345")
+            user.save()
+            print("\n=== DEBUG AUTH ===")
+            print(f"User: {user}")
+            print(f"Email: {user.email}")
+            print(f"DB password hash: {user.password[:50]}...")  # Выводим начало хеша
+
+            # Проверка пароля
+            input_password = cd["password1"]
+            print(f"Input password: {input_password}")
+            print(f"Password check: {user.check_password(input_password)}")
+
+            if user.check_password(input_password):
+                print("✅ Пароль верный")
+                # Дополнительная проверка хеша
+                from django.contrib.auth.hashers import identify_hasher
+                try:
+                    hasher = identify_hasher(user.password)
+                    print(f"Hasher: {hasher.algorithm}")
+                except Exception as e:
+                    print(f"❌ Hash identification failed: {e}")
+            else:
+                print("❌ Ошибка: Неверный пароль!")
+                # Проверка существования пользователя с таким паролем
+                try:
+                    test_user = User.objects.get(email=cd["email"], password=input_password)
+                    print("⚠️ Внимание: Пароль сохранен в открытом виде!")
+                except User.DoesNotExist:
+                    print("Пароль в БД хранится как хеш (это нормально)")
+
+
+
             user = authenticate(request, username=cd["email"], password=cd["password1"])
             if user:
                 login(request, user)
-                return redirect('admin')
+                return redirect('registration')
             else:
                 form.add_error('email', "Пользователь не найден")
     else:
-        form = AuthForm()
-        del form.fields['password2']
-        del form.fields['photo']
-        del form.fields['agree']
-        del form.fields['username']
+        form = LoginForm()
     context = {
-        'type': "login",
         'form': form
     }
     return render(request, "myauth/login.html", context=context)

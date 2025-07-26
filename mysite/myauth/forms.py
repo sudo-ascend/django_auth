@@ -1,8 +1,7 @@
 from django import forms
 from django.core.exceptions import ValidationError
 from django.utils.deconstruct import deconstructible
-
-from myauth.models import User
+from django.contrib.auth.models import User
 
 
 # @deconstructible
@@ -41,22 +40,24 @@ from myauth.models import User
 #     agree = forms.BooleanField(label="Я согласен с условиями использования", initial=True)
 
 
-class AuthForm(forms.ModelForm):
+class RegistrationForm(forms.ModelForm):
+    password1 = forms.CharField(required=True, label="Пароль", widget=forms.TextInput(attrs={"class": "form-control"}))
     password2 = forms.CharField(required=True, label="Подтвердите пароль", widget=forms.TextInput(attrs={"class": "form-control"}))
     agree = forms.BooleanField(label="Я согласен с условиями использования", initial=True)
 
     class Meta:
         model = User
-        fields = ["username", "email", "password1", "photo"]   #"__all__"
+        fields = ["username", "email"]   #"__all__"
         widgets = {
             "username": forms.TextInput(attrs={"class": "form-control"}),
             "email": forms.TextInput(attrs={"class": "form-control"}),
-            "password1": forms.TextInput(attrs={"class": "form-control"}),
-            "photo": forms.TextInput(attrs={"class": "form-control"}),
         }
         labels = {
             "username": "Имя",
             "email": "email",
-            "password1": "Пароль",
-            "photo": "Фото",
         }
+
+class LoginForm(forms.Form):
+    email = forms.CharField(required=True, label="Почта",
+                                widget=forms.TextInput(attrs={"class": "form-control"}))
+    password1 = forms.CharField(required=True, label="Пароль", widget=forms.TextInput(attrs={"class": "form-control"}))
